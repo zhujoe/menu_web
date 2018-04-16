@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from get_menu import views as gm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('11/', gm.index, name='update'),
 ]
