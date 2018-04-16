@@ -12,7 +12,7 @@ def updatamenu_all():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
     }
-    for num in range(90, 200000):
+    for num in range(15755, 200000):
         url = 'https://www.xinshipu.com/zuofa/'+str(num)
         urllist.append(url)
 
@@ -21,7 +21,11 @@ def updatamenu_all():
         num+=1
         print(num)
         print(url)
-        html = requests.get(url, timeout=120, headers=headers).content
+        try:
+            html = requests.get(url, timeout=120, headers=headers).content
+        except:
+            print('访问超时')
+            continue
         data = bs(html, 'html5lib')
         try:
             name = data.find('h1', {'class': 'font18 no-overflow'}).text
@@ -29,6 +33,10 @@ def updatamenu_all():
             img_url = data.find('div', {'class': 'gallery'}).find('img')['src']
             # print(img_url)
             text_data = data.find('div', {'class': 'bpannel mt20 p15 re-steps'})#.find_all('p')
+            makeings = ' '
+            work = ' '
+            knack = ' '
+            family = ' '
             for i in text_data:
                 try:
                     tit = i.find('div', {'class': 'dt cg2'}).text
@@ -61,10 +69,10 @@ def updatamenu_all():
             continue
         sql = cookbook(name=name, img_url=img_url, makings=makeings, work=work, knack=knack, family=family,
                        pub_date=timezone.now())
+
         sql.save()
         time.sleep(1)
         print('#')
-
 
 
 def index(request):

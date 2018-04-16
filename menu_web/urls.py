@@ -19,5 +19,5 @@ from get_menu import views as gm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('11/', gm.index, name='update'),
+    path('updata/', gm.index, name='update'),
 ]
