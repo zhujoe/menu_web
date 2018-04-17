@@ -19,8 +19,6 @@ def index(request):
                'image2': image_url_list[1],
                'image3': image_url_list[2],
                'image4': image_url_list[3]}
-    # print(image_url_list)
-    # print(name_list)
     return render(request, 'index.html', content)
 
 
@@ -35,3 +33,26 @@ def blog(request, name):
                    'knack': cai.knack,
                    'family': cai.family}
     return render(request, 'blog.html', content)
+
+
+def recommend(request):
+    data_lists = []
+    for i in range(6):
+        image_url_list = []
+        name_list = []
+        n = random.randint(1, 15000)
+        sqldata = cookbook.objects.order_by('id')[n:n+4]
+        for cai in sqldata:
+            name_list.append(cai.name)
+            image_url_list.append('http:' + cai.img_url)
+        data_lists.append({'name1': name_list[0],
+                           'name2': name_list[1],
+                           'name3': name_list[2],
+                           'name4': name_list[3],
+                           'image1': image_url_list[0],
+                           'image2': image_url_list[1],
+                           'image3': image_url_list[2],
+                           'image4': image_url_list[3],
+                           'myid': 'demo' + str(n)})
+    content = {'data_lists': data_lists}
+    return render(request, 'recommend.html', content)

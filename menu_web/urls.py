@@ -22,5 +22,6 @@ urlpatterns = [
     path('', ma.index, name='main'),
     path('admin/', admin.site.urls),
     path('updata/', gm.updata, name='update'),
-    path('blog/<str:name>/', ma.blog, name='blog')
+    path('blog/<str:name>/', ma.blog, name='blog'),
+    path('recommend/', ma.recommend, name='recommend')
 ]

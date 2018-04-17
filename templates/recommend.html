@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>今日推荐</title>
+<!-- for-mobile-apps -->
+{#<meta name="viewport" content="width=device-width, initial-scale=1">#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{#<meta name="keywords" content="Best Bakery Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,#}
+{#Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- animation-effect -->
+<link href="/static/css/animate.min.css" rel="stylesheet">
+<script src="/static/js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
+</head>
+<body>
+<!-- banner -->
+	<div class="banner-figures">
+		<div class="banner">
+			<div class="container banner-drop">
+				<div class="header">
+					<div class="header-left">
+                        <ul>
+                            <li class="animated wow fadeInLeftBig" data-wow-duration="1200ms" data-wow-delay="800ms"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 今日推荐 </li>
+                        </ul>
+						<br><br>
+					</div>
+					<div class="header-right">
+						<nav>
+						  <ul>
+							<li>
+								<a href="/"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>主页</span></a>
+							</li>
+							<li>
+								<a href="about.html"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>关于</span></a>
+							</li>
+							<li class="active">
+								<a href="recommend"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>每日推荐</span></a>
+							</li>
+							<li>
+								<a href="classify"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i><span>分类</span></a>
+							</li>
+							<li>
+								<a href="mail.html"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>留言</span></a>
+							</li>
+						  </ul>
+						</nav>
+						<div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="logo animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<h1><a href="index.html"><span>生活需要多一点滋味</span>“每时美味”</a></h1>
+				</div>
+				<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+				</div>
+			</div>
+		</div>
+			<script>
+				(function($){
+				  $(".menu-icon").on("click", function(){
+						$(this).toggleClass("open");
+						$(".container").toggleClass("nav-open");
+						$("nav ul li").toggleClass("animate");
+				  });
+
+				})(jQuery);
+			</script>
+	</div>
+<!-- //banner -->
+<!-- banner-bottom -->
+{% if data_lists %}
+{% for mylist in data_lists %}
+    <style type="text/css">
+        .{{ mylist.myid }}{
+            background:url({{ mylist.image1 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .{{ mylist.myid }}a{
+            background:url({{ mylist.image2 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .{{ mylist.myid }}b{
+            background:url({{ mylist.image3 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .{{ mylist.myid }}c{
+            background:url({{ mylist.image4 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+    </style>
+	<div class="banner-bottom animated wow lightSpeedIn" data-wow-duration="1500ms" data-wow-delay="800ms">
+		<ul id="{{ mylist.myid }}">
+			<li>
+				<div class="item {{ mylist.myid }}">
+					<div class="item1">
+						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
+						<h3>food</h3>
+					</div>
+					<div class="p-mask">
+                        <h4><a  href="/blog/{{ mylist.name1 }}/">{{ mylist.name1 }}</a></h4>
+<!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+							amet, consectetur, adipisci velit.</p> -->
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item {{ mylist.myid }}a">
+					<div class="item1">
+						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
+						<h3>food</h3>
+					</div>
+					<div class="p-mask">
+						<h4><a  href="/blog/{{ mylist.name2 }}/">{{ mylist.name2 }}</a></h4>
+<!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+							amet, consectetur, adipisci velit.</p> -->
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item {{ mylist.myid }}b">
+					<div class="item1">
+						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
+						<h3>food</h3>
+					</div>
+					<div class="p-mask">
+						<h4><a  href="/blog/{{ mylist.name3 }}/">{{ mylist.name3 }}</a></h4>
+<!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+							amet, consectetur, adipisci velit.</p> -->
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item {{ mylist.myid }}c">
+					<div class="item1">
+						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
+						<h3>food</h3>
+					</div>
+					<div class="p-mask">
+						<h4><a  href="/blog/{{ mylist.name4 }}/">{{ mylist.name4 }}</a></h4>
+<!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+							amet, consectetur, adipisci velit.</p> -->
+					</div>
+				</div>
+			</li>
+		</ul>
+			<script type="text/javascript">
+				$(window).load(function() {
+				$("#{{ mylist.myid }}").flexisel({
+					visibleItems: 4,
+					animationSpeed: 1000,
+					autoPlay: true,
+					autoPlaySpeed: 3000,
+					pauseOnHover: true,
+					enableResponsiveBreakpoints: true,
+					responsiveBreakpoints: {
+						portrait: {
+							changePoint:480,
+							visibleItems: 1
+						},
+						landscape: {
+							changePoint:640,
+							visibleItems: 2
+						},
+						tablet: {
+							changePoint:768,
+							visibleItems: 3
+						}
+					}
+				});
+			 });
+			</script>
+			<script type="text/javascript" src="../static/js/jquery.flexisel.js"></script>
+	</div>
+{% endfor %}
+{% endif %}
+</body>
+</html>
