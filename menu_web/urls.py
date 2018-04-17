@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from get_menu import views as gm
+from main import views as ma
 
 urlpatterns = [
+    path('', ma.index, name='main'),
     path('admin/', admin.site.urls),
-    path('updata/', gm.index, name='update'),
+    path('updata/', gm.updata, name='update'),
+    path('blog/<str:name>/', ma.blog, name='blog')
 ]

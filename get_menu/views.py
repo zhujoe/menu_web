@@ -75,7 +75,7 @@ def updatamenu_all():
         print('#')
 
 
-def index(request):
+def updata(request):
     updatamenu_all()
     return HttpResponse("完成！")
 
