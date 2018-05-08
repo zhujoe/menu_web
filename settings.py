@@ -20,12 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'l)k3umepxw0pow^f^u=emgz6d(9shu%+%%8eb0_4pc5fk(eqrt'
+=======
+SECRET_KEY = 'vdi_a-=o*@ksv8@pfhpws)#2n1&5xf0j-exj$n$#@vob11s=+-'
+>>>>>>> Initial commit
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.12.8']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'get_menu.apps.GetMenuConfig',
+<<<<<<< HEAD
     'main.apps.MainConfig',
+=======
+>>>>>>> Initial commit
 ]
 
 MIDDLEWARE = [
@@ -106,7 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
+<<<<<<< HEAD
 LANGUAGE_CODE = 'zh-hans'
+=======
+LANGUAGE_CODE = 'en-us'
+>>>>>>> Initial commit
 
 TIME_ZONE = 'UTC'
 
@@ -116,14 +127,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+<<<<<<< HEAD
 # APPEND_SLASH = False
+=======
+>>>>>>> Initial commit
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+=======
+>>>>>>> Initial commit

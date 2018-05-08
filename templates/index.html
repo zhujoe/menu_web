@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>今日推荐</title>
+<title>主页</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,6 +10,40 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
+    <style type="text/css">
+        .item-sub{
+            background:url({{ image1 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub1{
+            background:url({{ image2 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub2{
+            background:url({{ image3 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub3{
+            background:url({{ image4 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+    </style>
 <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
@@ -44,21 +78,18 @@
 			<div class="container banner-drop">
 				<div class="header">
 					<div class="header-left">
-                        <ul>
-                            <li class="animated wow fadeInLeftBig" data-wow-duration="1200ms" data-wow-delay="800ms"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 今日推荐 </li>
-                        </ul>
-						<br><br>
+						<br><br><br><br>
 					</div>
 					<div class="header-right">
 						<nav>
 						  <ul>
-							<li>
+							<li class="active">
 								<a href="/"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>主页</span></a>
 							</li>
 							<li>
 								<a href="about.html"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>关于</span></a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="recommend"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>每日推荐</span></a>
 							</li>
 							<li>
@@ -93,92 +124,55 @@
 	</div>
 <!-- //banner -->
 <!-- banner-bottom -->
-{% if data_lists %}
-{% for mylist in data_lists %}
-    <style type="text/css">
-        .{{ mylist.myid }}{
-            background:url({{ mylist.image1 }}) no-repeat 0px 0px;
-            background-size:cover;
-            -webkit-background-size:cover;
-            -moz-background-size:cover;
-            -o-background-size:cover;
-            -ms-background-size:cover;
-        }
-        .{{ mylist.myid }}a{
-            background:url({{ mylist.image2 }}) no-repeat 0px 0px;
-            background-size:cover;
-            -webkit-background-size:cover;
-            -moz-background-size:cover;
-            -o-background-size:cover;
-            -ms-background-size:cover;
-        }
-        .{{ mylist.myid }}b{
-            background:url({{ mylist.image3 }}) no-repeat 0px 0px;
-            background-size:cover;
-            -webkit-background-size:cover;
-            -moz-background-size:cover;
-            -o-background-size:cover;
-            -ms-background-size:cover;
-        }
-        .{{ mylist.myid }}c{
-            background:url({{ mylist.image4 }}) no-repeat 0px 0px;
-            background-size:cover;
-            -webkit-background-size:cover;
-            -moz-background-size:cover;
-            -o-background-size:cover;
-            -ms-background-size:cover;
-        }
-    </style>
-{#    lightSpeedIn#}
-	<div class="banner-bottom animated wow " data-wow-duration="1500ms" data-wow-delay="800ms">
-		<ul id="{{ mylist.myid }}">
+	<div class="banner-bottom animated wow lightSpeedIn" data-wow-duration="1500ms" data-wow-delay="800ms">
+		<ul id="flexiselDemo1">
 			<li>
-				<div class="item {{ mylist.myid }}">
+				<div class="item item-sub">
 					<div class="item1">
 						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
 						<h3>food</h3>
 					</div>
 					<div class="p-mask">
-                        <h4><a  href="/blog/{{ mylist.name1 }}/">{{ mylist.name1 }}</a></h4>
+                        <h4><a  href="/blog/{{ name1 }}/">{{ name1 }}</a></h4>
 <!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
 							amet, consectetur, adipisci velit.</p> -->
 					</div>
 				</div>
 			</li>
 			<li>
-				<div class="item {{ mylist.myid }}a">
+				<div class="item item-sub1">
 					<div class="item1">
 						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
 						<h3>food</h3>
 					</div>
 					<div class="p-mask">
-						<h4><a  href="/blog/{{ mylist.name2 }}/">{{ mylist.name2 }}</a></h4>
+						<h4><a  href="/blog/{{ name2 }}/">{{ name2 }}</a></h4>
 <!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
 							amet, consectetur, adipisci velit.</p> -->
 					</div>
 				</div>
 			</li>
 			<li>
-				<div class="item {{ mylist.myid }}b">
+				<div class="item item-sub2">
 					<div class="item1">
 						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
 						<h3>food</h3>
 					</div>
 					<div class="p-mask">
-						<h4><a  href="/blog/{{ mylist.name3 }}/">{{ mylist.name3 }}</a></h4>
+						<h4><a  href="/blog/{{ name3 }}/">{{ name3 }}</a></h4>
 <!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
 							amet, consectetur, adipisci velit.</p> -->
 					</div>
 				</div>
 			</li>
 			<li>
-				<div class="item {{ mylist.myid }}c">
+				<div class="item item-sub3">
 					<div class="item1">
 						<i class="glyphicon glyphicon-cutlery" aria-hidden="true"></i>
 						<h3>food</h3>
 					</div>
 					<div class="p-mask">
-						<h4><a  href="/blog/{{ mylist.name4 }}/">{{ mylist.name4 }}</a></h4>
+						<h4><a  href="/blog/{{ name4 }}/">{{ name4 }}</a></h4>
 <!-- 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit
 							amet, consectetur, adipisci velit.</p> -->
 					</div>
@@ -187,23 +181,23 @@
 		</ul>
 			<script type="text/javascript">
 				$(window).load(function() {
-				$("#{{ mylist.myid }}").flexisel({
+				$("#flexiselDemo1").flexisel({
 					visibleItems: 4,
 					animationSpeed: 1000,
 					autoPlay: true,
 					autoPlaySpeed: 3000,
 					pauseOnHover: true,
 					enableResponsiveBreakpoints: true,
-					responsiveBreakpoints: {
-						portrait: {
+					responsiveBreakpoints: { 
+						portrait: { 
 							changePoint:480,
 							visibleItems: 1
-						},
-						landscape: {
+						}, 
+						landscape: { 
 							changePoint:640,
 							visibleItems: 2
 						},
-						tablet: {
+						tablet: { 
 							changePoint:768,
 							visibleItems: 3
 						}
@@ -213,7 +207,35 @@
 			</script>
 			<script type="text/javascript" src="../static/js/jquery.flexisel.js"></script>
 	</div>
-{% endfor %}
-{% endif %}
+<!-- //banner-bottom -->
+<!-- banner-bottom-grids -->
+	<div class="banner-bottom-grids">
+		<div class="col-md-7 banner-bottom-grid-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+			<h2>美食就在这里<span>不论你来与不来</span></h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美食当前，总有所思，你往往可以找到一份心的平静，在某个角落里慢慢的咀嚼，轻轻的回味，非比寻常的滋味。虽然每个城市有着不同的风景，也许是流水江南，烟笼人家；也许是舞榭亭台,长街曲巷；也许是流光溢彩，店铺林立；但在陌生城市最美好的事情，莫过于餐桌边刚好适合你的一蔬一饭，舌尖上的一饮一啄。</p>
+			<div class="more">
+				<a href="single.html">更多...</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<br><br>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+<!-- //here ends scrolling icon -->
 </body>
 </html>
