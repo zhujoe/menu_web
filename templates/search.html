@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>搜索</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{#<meta name="keywords" content="Best Bakery Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,#}
+{#Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+    <style type="text/css">
+        .item-sub{
+            background:url({{ image1 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub1{
+            background:url({{ image2 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub2{
+            background:url({{ image3 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+        .item-sub3{
+            background:url({{ image4 }}) no-repeat 0px 0px;
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            -ms-background-size:cover;
+        }
+    </style>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- animation-effect -->
+<link href="/static/css/animate.min.css" rel="stylesheet">
+<script src="/static/js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
+</head>
+<body>
+<!-- banner -->
+	<div class="banner-figures">
+		<div class="banner">
+			<div class="container banner-drop">
+				<div class="header">
+					<div class="header-left">
+						<br><br><br><br>
+					</div>
+					<div class="header-right">
+						<nav>
+						  <ul>
+							<li>
+								<a href="/"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>主页</span></a>
+							</li>
+							<li class="active">
+								<a href="/search"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>搜索</span></a>
+							</li>
+							<li>
+								<a href="/recommend"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>每日推荐</span></a>
+							</li>
+							<li>
+								<a href="classify"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i><span>分类</span></a>
+							</li>
+							<li>
+								<a href="/mail"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>留言</span></a>
+							</li>
+						  </ul>
+						</nav>
+						<div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="logo animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<h1><a><span>生活需要多一点滋味</span>“每时美味”</a></h1>
+				</div>
+				<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+				</div>
+			</div>
+		</div>
+			<script>
+				(function($){
+				  $(".menu-icon").on("click", function(){
+						$(this).toggleClass("open");
+						$(".container").toggleClass("nav-open");
+						$("nav ul li").toggleClass("animate");
+				  });
+
+				})(jQuery);
+			</script>
+	</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-group col-md-6 col-md-offset-3" style="margin-top:10px">
+        <input type="text" class="form-control" name="name" placeholder={{ holder }} />
+        <span class="input-group-btn">
+            <button class="btn btn-info btn-search">查找</button>
+        </span>
+    </div>
+</form>
+
+<div class="col-md-6 col-md-offset-3">
+    <ul style="padding-left:40px; margin-top:0;margin-bottom:0px">
+    {% for cai in name_list %}
+        <li><a href="/blog/{{ cai.name }}">{{ cai.name }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="col-md-12">
+		<br><br>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>
