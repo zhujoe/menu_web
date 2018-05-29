@@ -80,5 +80,22 @@ def updata(request):
     return HttpResponse("完成！")
 
 
+def clean(request):
+    sqldata = cookbook.objects.order_by('id')
+    for data in sqldata:
+        yuan_data = data.name
+        print(str(data.id) + str(yuan_data))
+        search = cookbook.objects.filter(name=yuan_data)
+        num = 0
+        for i in search:
+            if num == 0:
+                num+=1
+                continue
+            else:
+                print('del:' + str(i.id))
+                i.delete()
+    return render(request, 'about.html')
+
+
 if __name__ == '__main__':
     updatamenu_all()

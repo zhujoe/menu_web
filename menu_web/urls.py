@@ -22,6 +22,9 @@ urlpatterns = [
     path('', ma.index, name='main'),
     path('admin/', admin.site.urls),
     path('updata/', gm.updata, name='update'),
+    path('clean/', gm.clean, name='clean'),
     path('blog/<str:name>/', ma.blog, name='blog'),
-    path('recommend/', ma.recommend, name='recommend')
+    path('recommend/', ma.recommend, name='recommend'),
+    path('search/', ma.search, name='search'),
+    path('mail/', ma.mail, name='mail'),
 ]

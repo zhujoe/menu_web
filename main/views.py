@@ -40,7 +40,7 @@ def recommend(request):
     for i in range(6):
         image_url_list = []
         name_list = []
-        n = random.randint(1, 15000)
+        n = random.randint(1, 13375)
         sqldata = cookbook.objects.order_by('id')[n:n+4]
         for cai in sqldata:
             name_list.append(cai.name)
@@ -56,3 +56,49 @@ def recommend(request):
                            'myid': 'demo' + str(n)})
     content = {'data_lists': data_lists}
     return render(request, 'recommend.html', content)
+
+
+def search(request):
+    content = {}
+    if request.method == 'GET':
+        content = {'holder': '输入关键字'}
+        return render(request, 'search.html', content)
+    elif request.method == 'POST':
+        name = request.POST.get('name', None)
+        if name == '':
+            content = {'holder': '不能为空'}
+            return render(request, 'search.html', content)
+        # print('开始查询')
+        sqldata = cookbook.objects.filter(name__contains=name)
+        # print('查询结束')
+        # print(sqldata)
+        if len(sqldata) == 1:
+            for cai in sqldata:
+                content = {'name': cai.name,
+                        'image_url': 'http:' + str(cai.img_url),
+                        'makings': cai.makings,
+                        'work': cai.work,
+                        'knack': cai.knack,
+                        'family': cai.family}
+            return render(request, 'blog.html', content)
+
+        elif len(sqldata) > 1:
+            if len(sqldata) > 10:
+                while 1:
+                    a = random.randint(0, len(sqldata))
+                    if a + 10 < len(sqldata):
+                        break
+                content = {'holder': '包含搜索词的内容如下',
+                           'name_list': sqldata[a:a+10]}
+            else:
+                content = {'holder': '包含搜索词的内容如下',
+                           'name_list': sqldata}
+            return render(request, 'search.html', content)
+
+        elif len(sqldata) == 0:
+            content = {'holder': '未找到' + str(name)}
+        return render(request, 'search.html', content)
+
+
+def mail(request):
+    return render(request, 'mail.html')
