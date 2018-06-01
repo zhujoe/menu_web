@@ -102,3 +102,22 @@ def search(request):
 
 def mail(request):
     return render(request, 'mail.html')
+
+
+def classify(request):
+    name = ['肉', '农家', '粥', '米饭']
+    sqldata1 = cookbook.objects.filter(name__contains=name[0])
+    sqldata2 = cookbook.objects.filter(name__contains=name[1])
+    sqldata3 = cookbook.objects.filter(name__contains=name[2])
+    sqldata4 = cookbook.objects.filter(name__contains=name[3])
+
+    content = {'class1': name[0],
+               'class2': name[1],
+               'class3': name[2],
+               'class4': name[3],
+               'sqldata1': sqldata1[:5],
+               'sqldata2': sqldata2[:5],
+               'sqldata3': sqldata3[:5],
+               'sqldata4': sqldata4[:5]}
+
+    return render(request, 'classify.html', content)

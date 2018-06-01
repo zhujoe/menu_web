@@ -27,4 +27,5 @@ urlpatterns = [
     path('recommend/', ma.recommend, name='recommend'),
     path('search/', ma.search, name='search'),
     path('mail/', ma.mail, name='mail'),
+    path('classify/', ma.classify, name='classify'),
 ]
